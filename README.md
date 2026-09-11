@@ -71,4 +71,4 @@ git submodule update --init                       # nachträglich
 |---|---|---|
 | mec_demo (Wandelbots Nova, Isaac Sim, FastAPI, React) | `C:\Temp\python\mec_demo01\mec_demo`, Remote `code.wabo.run:customer-success/mec_demo` | eingebunden 2026-09-11 |
 | tests (IPC Monitor, FastAPI, React) | `c:\my_project\tests`, Remote `code.wabo.run:customer-success/ipc-monitoring` (Branch `master`) | eingebunden 2026-09-11 |
-| testautomatisierung (Testprozess-Plan, Python/pytest) | `c:\my_project\testautomatisierung`, Remote `github.com/gdwbdd/testautomatisierung` (Branch `main`) | eingebunden 2026-09-11 (Git-Init am selben Tag) |
+| testautomatisierung (Testprozess-Plan, Python/pytest) | `c:\my_project\testautomatisierung`, Remote `github.com/gdwbdd/Testautomatisierung` (Branch `main`) | eingebunden 2026-09-11 (Git-Init am selben Tag) |
