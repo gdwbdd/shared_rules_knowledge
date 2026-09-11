@@ -36,8 +36,19 @@ und `~/.claude/frame_settings.md`. Begründung und verworfene Alternativen: [adr
 3. `.github/copilot-instructions.md` verweist auf dieselben Dateien (Vorlage in `templates/`).
 4. Projekt-Codex (`docs/workbasis/codex.md`) enthält nur noch Projektspezifisches und verweist
    nach oben (Vorlage: `templates/codex_projekt.md`).
-5. Beim Klonen eines Projekts: `git clone --recurse-submodules ...` oder danach
-   `git submodule update --init`.
+5. `README.md` des Projekts bekommt den Abschnitt "Klonen (Submodul erforderlich)" aus
+   `templates/README_abschnitt_klonen.md`, damit auch Menschen ohne Assistent wissen, dass
+   `git clone --recurse-submodules` bzw. `git submodule update --init` nötig ist.
+
+## Klonen eines eingebundenen Projekts
+
+Ein normales `git clone` lässt `docs/shared_rules_knowledge/` **leer**; die `@`-Importe in
+`CLAUDE.md` laufen dann ins Leere und Copilot findet die Regeln nicht.
+
+```
+git clone --recurse-submodules <projekt-url>      # neu
+git submodule update --init                       # nachträglich
+```
 
 ## Pflege
 

@@ -53,7 +53,13 @@ Beim ersten Kontakt eines neuen Tages: 1, 2, 5, 7 erneut lesen (Tagesstart-Regel
    `templates/terminologie_projekt.md` an ihre Orte kopieren.
 5. `docs/workbasis/adr/README.md` mit leerem Verzeichnis anlegen (Vorlage in
    `templates/adr_README_projekt.md`).
-6. Alles committen und pushen; ab jetzt gehört `docs/workbasis/` in jeden Commit, der es ändert.
+6. Abschnitt "Klonen (Submodul erforderlich)" aus `templates/README_abschnitt_klonen.md` in die
+   Projekt-`README.md` übernehmen (Pflicht: sonst klonen Menschen ohne Submodul).
+7. Alles committen und pushen; ab jetzt gehört `docs/workbasis/` in jeden Commit, der es ändert.
+
+Checkliste "ist ein Projekt vollständig eingebunden?": `.gitmodules` vorhanden, `CLAUDE.md` mit
+zwei `@`-Importen und Leer-Hinweis, `copilot-instructions.md` mit Leseordnung und Leer-Hinweis,
+`README.md` mit Klon-Abschnitt, Projekt-Codex ohne generische Regeln.
 
 ## Geteilten Stand nachziehen
 

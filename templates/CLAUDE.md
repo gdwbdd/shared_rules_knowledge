@@ -3,9 +3,11 @@
 Diese Datei wird von Claude Code automatisch bei Sessionstart geladen. Sie enthält keinen
 eigenen Regeltext, nur Importe und Leseordnung.
 
-## Geteilte Regeln (Single Source of Truth, Submodul)
+## Geteilte Regeln (Single Source of Truth, Submodul `docs/shared_rules_knowledge/`)
 @docs/shared_rules_knowledge/rules/codex.md
 @docs/shared_rules_knowledge/rules/lernprozesse.md
+
+Ist das Submodul leer: `git submodule update --init`. Repo: https://github.com/gdwbdd/shared_rules_knowledge
 
 ## Zuerst lesen (in dieser Reihenfolge)
 1. `docs/workbasis/codex.md` — projektspezifische Regeln und Abweichungen
