@@ -20,8 +20,16 @@
   importierte Dateien dürfen selbst importieren. Nicht innerhalb von Code-Spans/-Blöcken.
 - `.claude/rules/*.md` (Projekt) und `~/.claude/rules/` (User) sind dokumentiert; per
   Frontmatter `paths:` lassen sich Regeln auf Dateimuster begrenzen.
-- Submodul-Inhalte beim `@`-Import: nicht dokumentiert. Annahme: normale Dateien.
-  Prüfbar mit `/context` nach Einrichtung.
+- Submodul-Inhalte beim `@`-Import: nicht dokumentiert, aber **verifiziert 2026-09-11** in
+  mec_demo, tests und Testautomatisierung: frische `claude -p`-Instanz (Extension-Binary
+  `resources/native-binary/claude.exe` 2.1.266, `--max-turns 1`, ohne Werkzeuge) zitierte
+  Inhalte aus `docs/shared_rules_knowledge/rules/*.md` und listete beide Importe als geladen.
+  Dateien, die in `CLAUDE.md` nur unter "Zuerst lesen" stehen, sind NICHT im Kontext.
+- Nicht-interaktiver Test einer Einbindung: im Projektordner
+  `claude.exe -p "<Frage nach einem Wortlaut aus der importierten Datei>" --max-turns 1
+  --output-format text`. Die CLI ist nicht im PATH; das Binary liegt in der VS-Code-Extension.
+- Ein noch nicht "trusted" Workspace ignoriert `permissions.allow` aus `.claude/settings.json`
+  (Hinweis der CLI); einmal interaktiv öffnen und den Trust-Dialog bestätigen.
 - `/memory` bzw. `/context` zeigen, welche Instruktionsdateien geladen sind.
 
 ## Auto-Memory (`~/.claude/projects/<slug>/memory/`)

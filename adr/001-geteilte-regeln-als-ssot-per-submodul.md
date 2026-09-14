@@ -68,6 +68,15 @@ Submodul-Disziplin (Zeiger nachziehen) in Kauf.
   Bewusst verschoben.
 - Bewusst verschoben: Einbindung in `c:\my_project\tests` (eigene Session).
 
+## Nachtrag Umsetzung und Verifikation (2026-09-11, Entscheidung unverändert)
+
+- Eingebunden am selben Tag: mec_demo (main), tests (master), Testautomatisierung (main, Repo
+  dafür neu angelegt: `github.com/gdwbdd/Testautomatisierung`).
+- Die Annahme "Submodul-Dateien werden beim `@`-Import wie normale Dateien behandelt" ist
+  **verifiziert**: in allen drei Projekten zitierte eine frische `claude -p`-Instanz ohne
+  Werkzeuge Inhalte aus `rules/codex.md` und `rules/lernprozesse.md` und listete beide Importe
+  als geladen (Methode in `knowledge/claude_code_umgebung.md`).
+
 ## Quellen
 
 - mec_demo `docs/workbasis/chat_log.md`, Eintrag 2026-09-11 (Analyse, Freigabe "A", Punkte 1–6)
