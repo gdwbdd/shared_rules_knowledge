@@ -150,6 +150,32 @@
 - Type-Hints/Signaturen nicht ändern, ohne die Auswirkungen überall geprüft zu haben.
 - Keine Funktion kopieren — aus der Single Source of Truth importieren.
 
+## UI-Eingabefelder (generisch) — eingeführt 2026-09-18
+> Herkunft: mec_demo, Plan Omniverse-Host-Verbindung; User: "Bitte als generelle Regel für
+> Eingabefelder gestalten." Gilt für jedes Eingabefeld in jeder UI der Projekte.
+- Jedes Feld sagt selbst, was es erwartet — vier Ebenen, alle vorhanden:
+  1. **Label**: was das Feld ist (Fachbegriff aus dem Glossar, UI-Sprache).
+  2. **Placeholder**: ein konkretes gültiges Beispiel (z. B. `omniverse-ws-6 oder 172.31.12.113`,
+     `8011`), nie ein Wert, der wie eine Vorgabe aussieht, aber keine ist.
+  3. **Hilfetext** dauerhaft unter dem Feld: Format, Einheit, Wertebereich, Bedeutung von "leer"
+     (z. B. "Rechnername oder IPv4, ohne http:// und ohne Port"; "mm, 0 = keine Margin").
+  4. **Tooltip** für Hintergrund und Fallen (warum, Nebenwirkungen, bekannte Verwechslungen).
+- **Validierung sofort im Feld**, nicht erst nach dem Absenden: Feld rot, Hilfetext nennt den
+  Fehler und die erwartete Form. Backend-Fehler (`detail`) werden wörtlich angezeigt, nicht
+  verallgemeinert.
+- **Vorschau des Ergebnisses**, wenn aus mehreren Feldern etwas zusammengesetzt wird (z. B. ein
+  Verbindungsstring, eine Pose): nur lesend, immer sichtbar, genau der Wert, den das Backend
+  verwendet.
+- **Status nach der Aktion** neben dem Feld (erreichbar / gespeichert / Version), mit Zeitbezug,
+  wenn er veralten kann.
+- Einheiten stehen im Label oder Hilfetext (mm, mm/s, rad, Grad); Zahlenfelder mit `min`/`max`/
+  `step`; Defaults sichtbar ("Standard 8011"), nicht nur im Code.
+- Gleiche Felder gleich gestalten: ein neues Feld übernimmt Label-/Hilfetext-Stil der bestehenden
+  Felder derselben Ansicht; Bestandsfelder werden beim nächsten Anfassen nachgezogen (Redundanz
+  oder Abweichung aktiv melden, Gegeben–Gesucht Schritt 4).
+- Kein Feld ohne Hilfetext geht in eine Freigabe; Prüfpunkt in der Verifikation nach
+  Code-Änderungen.
+
 ## Nach Code-Änderungen (ohne nachzufragen)
 - Fehlerfreiheit prüfen; vorhandene Test-Suite laufen lassen.
 - Dev-Server des Projekts (Backend/Frontend, Befehle im Projekt-Codex) beenden und neu starten,
