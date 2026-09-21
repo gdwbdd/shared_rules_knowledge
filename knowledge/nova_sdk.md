@@ -45,6 +45,37 @@
 - Nova ↔ Isaac: keine automatische Synchronisierung zwischen Nova-Store-Collidern und
   Isaac-Szene; zwei getrennte Systeme (verifiziert 2026-08-20).
 
+## Execution Model — Trajectory/Planning/Execution (verifiziert Doku-Fetch 2026-09-21)
+> Quelle: `https://docs.wandelbots.io/nova/26.7/nova-api/execution-model`.
+
+- **Trajectory** ist die Grundeinheit: eine parametrierte Folge von Joint-Positionen, abgetastet
+  in Controller-Zykluszeit. Entsteht aus Motion-Commands (`line`, `p2p`, `via`) in der Planungsphase.
+- **Motion Group** = Roboter-Subsystem mit Setup-Kontext (Kinematik, Limits, Kollisionsgeometrie,
+  Payload, Zykluszeit); der Planner validiert Commands gegen diesen Kontext.
+- **Location** = skalarer Fortschrittswert `[0, n]` entlang der Trajectory; ganzzahlige Grenzen
+  markieren Command-Grenzen, Nachkommaanteile Positionen innerhalb eines Segments. Basis für
+  Teilausführung und I/O-Synchronisation an beliebiger Stelle der Trajectory.
+- **Planung vs. Ausführung getrennt:**
+  - Planung ist **synchron**: Motion-Commands + Kontext rein, gesampelte Joint-Trajectory oder
+    Fehler raus. Prüft Erreichbarkeit, erzeugt den geometrischen Pfad, plant optional
+    kollisionsfrei, samplet in Zykluszeit.
+  - Ausführung ist **asynchron über persistenten Websocket**: Initialize mit Trajectory (gecachte
+    ID oder inline), Steuerung der Wiedergabe über vier Request-Typen (`Initialize`, `Start`,
+    `Pause`, `AdjustSpeed`), gestreamte State-Updates (Soll- vs. Ist-Joint-Position).
+- **Bewegungskomposition:**
+  - Sequenzielle Ausführung: Wiederholungen durch erneutes Öffnen geschlossener Trajectories
+    (Loops).
+  - Richtung: vorwärts (start→end) oder rückwärts (end→start).
+  - Teilbereiche: `target_location` erlaubt Stopp an beliebiger Stelle der Trajectory.
+  - I/O-Synchronisation: `set_outputs` an bestimmten Locations; `start_on_io`/`pause_on_io` als
+    Gates.
+- **Invarianten:**
+  - Nur eine Steuerquelle kann Roboterbewegungen befehligen ("only one control source").
+  - Der Roboter muss vor der Initialisierung an `start_joint_position` stehen.
+  - Eine Trajectory pro Verbindung; zum Wechseln neu öffnen.
+  - State-Updates streamen im nächsten Vielfachen der Controller-Taktrate.
+  - Round-Trip-Latenz ~30 ms (virtuell) bis 100–300 ms (real).
+
 ## Planen ohne Bewegung (verifiziert live 2026-09-09)
 - `MotionGroup.plan(actions, tcp, start_joint_position=None, ...)`: mit `start_joint_position`
   lässt sich eine Planung aus einer BELIEBIGEN Pose prüfen, ohne den Roboter zu bewegen. Basis
