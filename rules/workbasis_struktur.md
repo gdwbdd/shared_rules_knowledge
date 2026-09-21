@@ -20,9 +20,8 @@ Regel: Jeder Inhalt hat genau einen Ort. Kein Regeltext in `CLAUDE.md` oder
 - `codex.md` — nur Projektspezifisches: Architektur-Regeln, Datenstrukturen, Ports, Start-
   und Neustart-Befehle, Projekt-Kontext, Abweichungen von den geteilten Regeln (ausdrücklich
   markiert). Erste Zeile verweist auf den geteilten Codex.
-- `open_points.md` — offene Punkte und Wiedervorlage. Session-Start ZUERST lesen, Session-Ende
-  ZULETZT aktualisieren. Handoff-Pflicht: jede Zusage "speichern & später vorlegen" sofort hier.
-- `chat_log.md` — Chatverlauf und Kontext je Datum, selbstständig gepflegt.
+- `open_points.md` — offene Punkte und Wiedervorlage (Benutzung: `codex.md`, "Workflow / Pflege").
+- `chat_log.md` — Chatverlauf und Kontext je Datum.
 - `knowledge/INDEX.md` — verifizierte Umgebungsfakten, Architektur-Stichworte, Links auf
   Themen-Dateien. Generisches gehört ins geteilte `knowledge/`, nicht hierher.
 - `knowledge/terminologie.md` — Projektglossar: nur Begriffe dieses Projekts, verweist für
@@ -33,15 +32,9 @@ Regel: Jeder Inhalt hat genau einen Ort. Kein Regeltext in `CLAUDE.md` oder
 
 ## Leseordnung beim Session-Start (Assistent)
 
-1. geteilt: `rules/codex.md`, `rules/lernprozesse.md` (werden per `@` in `CLAUDE.md` importiert)
-2. Projekt: `docs/workbasis/codex.md`
-3. Projekt: `docs/workbasis/open_points.md`
-4. Projekt: `docs/workbasis/chat_log.md`
-5. Projekt: `docs/workbasis/knowledge/INDEX.md`, dann `knowledge/terminologie.md`
-6. geteilt: `knowledge/terminologie.md`, `knowledge/INDEX.md` bei Bedarf
-7. Projekt: `docs/workbasis/adr/README.md`
-
-Beim ersten Kontakt eines neuen Tages: 1, 2, 5, 7 erneut lesen (Tagesstart-Regel).
+Steht genau einmal: in `templates/CLAUDE.md` (Claude Code, mit `@`-Importen) und
+`templates/copilot-instructions.md` (Copilot, ohne Importe); jedes Projekt übernimmt sie
+unverändert. Tagesstart-Regel: `codex.md`, "Workflow / Pflege".
 
 ## Neues Projekt aufsetzen
 
@@ -69,8 +62,7 @@ git add docs/shared_rules_knowledge
 git commit -m "shared_rules_knowledge auf <kurz-hash> nachgezogen"
 git push
 ```
-Nur auf Wort des Users (Commit-Regel). Der Assistent meldet, wenn der Submodul-Stand hinter
-`origin/main` des geteilten Repos liegt.
+Der Assistent meldet, wenn der Submodul-Stand hinter `origin/main` des geteilten Repos liegt.
 
 ## Was wohin bei neuen Erkenntnissen
 

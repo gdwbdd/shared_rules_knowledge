@@ -8,20 +8,15 @@ Ein ADR hält **eine Entscheidung und warum sie gegen die Alternativen gewonnen 
 nicht, wie das System funktioniert (das steht im Code und im Projektplan). Die Entscheidung
 steht zuerst; das Herzstück sind die verworfenen Optionen mit ihrem Grund. Knapp halten.
 
-## Regeln (gelten für dieses Repo und für jedes Projekt-`adr/`)
-- Jede Entscheidung, bei der mehrere Wege zur Wahl standen, bekommt ein ADR — bevor sie
-  umgesetzt wird: als `Status: Vorgeschlagen` anlegen, mit dem Go des Users auf `Angenommen`.
-  Das trennt Plan von Umsetzung.
-- **Angenommen = unveränderlich.** Ändert sich die Entscheidung, entsteht ein neues ADR, das das
-  alte ersetzt (`Ersetzt: ADR-NNN`); im alten wird nur der Status auf `Ersetzt durch ADR-NNN`
-  gesetzt. Zulässig ist ein datierter Nachtrag "Umsetzung"/"Verifikation", der die Entscheidung
-  nicht ändert.
-- Jede Begründung ist als **verifiziert (wie/wann)** oder **Annahme** markiert.
-- `open_points.md` des Projekts verweist bei Entscheidungen nur noch auf das ADR (Status und
+## Regeln
+Die Regeln (ADR je Entscheidung mit Alternativen, `Vorgeschlagen` vor Umsetzung, `Angenommen`
+mit Go des Users und dann unveränderlich, Kennzeichnung verifiziert/Annahme, Ort Projekt vs.
+geteilt) stehen in `rules/codex.md`, Abschnitt "Entscheidungen festhalten (ADR)". Ergänzend nur
+hier:
+- Beim Ersetzen bekommt das alte ADR nur den Status `Ersetzt durch ADR-NNN`. Zulässig ist ein
+  datierter Nachtrag "Umsetzung"/"Verifikation", der die Entscheidung nicht ändert.
+- `open_points.md` des Projekts verweist bei Entscheidungen nur auf das ADR (Status und
   Wiedervorlage bleiben dort); `PROJECT_PLAN.md` beschreibt die Umsetzung.
-- Vokabular nach `knowledge/terminologie.md` (geteilt) und dem Projektglossar.
-- Ort: Entscheidungen über Projektcode im Projekt (`docs/workbasis/adr/`), Entscheidungen über
-  den geteilten Rahmen hier.
 
 ## Neues ADR anlegen
 1. `TEMPLATE.md` nach `NNN-kurzer-titel.md` kopieren (nächste freie Nummer im jeweiligen Verzeichnis).

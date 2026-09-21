@@ -1,7 +1,7 @@
 # Chatverlauf / Kontext (<Projektname>)
 
-> Selbstständig gepflegt. Ein Abschnitt je Datum, neueste oben. Kurz: was besprochen, was
-> entschieden (mit ADR-Nr.), was offen blieb (→ open_points.md).
+> Ein Abschnitt je Datum, neueste oben. Kurz: was besprochen, was entschieden (mit ADR-Nr.),
+> was offen blieb (→ open_points.md). Regeln zur Benutzung: `rules/codex.md`, "Workflow / Pflege".
 
 ## JJJJ-MM-TT
 - **Thema:** <...>

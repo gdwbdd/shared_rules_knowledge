@@ -1,7 +1,7 @@
 # Domänenwissen — Index (geteilt)
 
-> Projektunabhängige, verifizierte Fakten. Jede Aussage trägt "verifiziert (wie/wann)" oder
-> "Annahme". Projektfakten (Pfade, Ports, Prims, Posen) gehören ins Projekt, nicht hierher.
+> Projektunabhängige Fakten (Kennzeichnungspflicht: `rules/codex.md`, Konsistenz). Projektfakten
+> (Pfade, Ports, Prims, Posen) gehören ins Projekt, nicht hierher.
 
 | Datei | Inhalt |
 |---|---|

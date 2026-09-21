@@ -4,6 +4,20 @@
 > welche Regel daraus folgt. Neue Einträge oben anfügen (Regel "Persistenz von Lernprozessen").
 > Konsolidiert 2026-09-11 aus den Memory-Ordnern von `mec_demo` und `tests`.
 
+## 2026-09-21 · SSoT gilt auch für Kopfnotizen und Vorlagen (mec_demo)
+**Fall:** User fragte, ob die Kopfzeilen von `open_points.md` ("Bei jeder inhaltlichen Änderung
+mitcommitten. Session-Start: ZUERST lesen ...") offene Punkte seien. Sie waren Kopien von
+Codex-Regeln. Die Prüfung der übrigen Einstiegsdateien und Vorlagen fand dasselbe Muster an
+21 Stellen: `CLAUDE.md` (trotz Satz "kein eigener Regeltext") mit Abschnitten Geltungsbereich und
+Handoff-Pflicht, `copilot-instructions.md`, Projekt-`adr/README.md` mit "Kurzfassung der Regeln",
+alle Vorlagen im geteilten Repo, das geteilte `adr/README.md` (ADR-Regeln doppelt zum Codex),
+`workbasis_struktur.md` (Leseordnung dreifach), `knowledge/INDEX.md`, sogar das `CLAUDE.md` des
+geteilten Repos selbst. User: "ja auf ssot anpassen. Ein Ort."
+**Regel:** Kopfnotizen, Einstiegsdateien und Vorlagen enthalten Zweck, Datei-Konventionen (z. B.
+"neueste Abschnitte oben") und Zeiger — keinen Regelsatz. Ein Regelsatz, der irgendwo erklärt
+wird, steht im Codex (Regel) oder im geteilten `adr/README.md` (ADR-Prozess) und wird per
+Abschnittsname referenziert. Bei jeder neuen Kopfnotiz fragen: steht das schon im Codex?
+
 ## 2026-09-11 · Memory ist kein Regelspeicher (mec_demo)
 **Fall:** 10 Regel-Dateien vom 2026-08-10 (Import aus `Copilot_Memory.pdf`) lagen im
 Memory-Ordner, wurden aber nie in den Index `MEMORY.md` aufgenommen, der erst am 2026-08-11

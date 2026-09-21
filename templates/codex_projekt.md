@@ -4,7 +4,6 @@
 > `docs/shared_rules_knowledge/rules/codex.md` (Single Source of Truth) und werden hier NICHT
 > wiederholt. Diese Datei enthält nur, was für dieses Projekt gilt. Abweichungen von den
 > geteilten Regeln sind ausdrücklich als **Abweichung** markiert.
-> Git-versioniert; bei jeder inhaltlichen Änderung mitcommitten.
 
 ## Projekt-Kontext
 - Framework / Sprache / Laufzeit:
@@ -21,7 +20,7 @@
 - Backend starten:
 - Frontend starten:
 - Venv aktivieren:
-- Deploy-Skript (nur auf Anstoß des Users):
+- Deploy-Skript:
 
 ## Abweichungen von den geteilten Regeln
 - *(keine)*

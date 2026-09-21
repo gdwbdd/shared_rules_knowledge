@@ -2,7 +2,6 @@
 
 > Nur Projektfakten. Generisches (Nova, Isaac, Claude Code) steht in
 > `docs/shared_rules_knowledge/knowledge/INDEX.md` und wird hier nicht wiederholt.
-> Jede Aussage: verifiziert (wie/wann) oder Annahme.
 
 ## Verifizierte Fakten (Umgebung)
 - Backend / Frontend / Ports:

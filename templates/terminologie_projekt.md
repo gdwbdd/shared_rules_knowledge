@@ -2,8 +2,7 @@
 
 > Ergänzt das Domänenglossar `docs/shared_rules_knowledge/knowledge/terminologie.md` um
 > Begriffe, die nur in diesem Projekt vorkommen. Domänenbegriffe und die geteilten Invarianten
-> werden hier nicht wiederholt. Widerspricht ein Gebrauch dem Glossar, ist der Gebrauch falsch —
-> oder das Glossar wird bewusst korrigiert.
+> werden hier nicht wiederholt.
 
 ## Bewegungen / Abläufe
 - **<Begriff>** — <Bedeutung>. *Quelle:* <Datei/ADR>.

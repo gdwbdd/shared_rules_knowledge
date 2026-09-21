@@ -1,8 +1,6 @@
 # Offene Punkte / Wiedervorlage (<Projektname>)
 
-> Session-Start: ZUERST lesen. Session-Ende: ZULETZT aktualisieren. Neueste Abschnitte oben.
-> Jede Zusage "speichern & später vorlegen" landet sofort hier (Handoff-Pflicht).
-> Entscheidungen verweisen auf das ADR; hier bleiben nur Status und Wiedervorlage.
+> Neueste Abschnitte oben. Regeln zur Benutzung: `rules/codex.md`, Abschnitt "Workflow / Pflege".
 
 ## JJJJ-MM-TT
 

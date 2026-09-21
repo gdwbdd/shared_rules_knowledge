@@ -53,17 +53,15 @@ git submodule update --init                       # nachträglich
 ## Pflege
 
 - **Ändern nur hier.** Regeländerungen, neue Lektionen, neue Domänenfakten werden in diesem
-  Repo committet und gepusht (commit und push zusammen).
+  Repo committet und gepusht.
 - Projekte holen den neuen Stand mit `git submodule update --remote docs/shared_rules_knowledge`
   und committen den neuen Submodul-Zeiger. Der Zeiger pinnt bewusst einen Stand; ein Projekt
   entscheidet selbst, wann es nachzieht.
 - Was hierher gehört: alles, was in einem zweiten Projekt genauso gelten würde. Was nicht
   hierher gehört: Ports, Pfade, Datenstrukturen, Posen, offene Punkte, Chatverlauf, ADRs über
   Projektcode.
-- Jede Aussage im `knowledge/`-Teil ist als **verifiziert (wie/wann)** oder **Annahme**
-  gekennzeichnet (Regel aus `rules/codex.md`, Abschnitt Konsistenz).
-- Änderungen an `rules/` und am ADR-Verzeichnis brauchen das ausdrückliche Go des Users
-  (Regel "Neue mögliche Regel erkannt → nachfragen").
+- Kennzeichnung verifiziert/Annahme im `knowledge/`-Teil und Go des Users für `rules/` und
+  `adr/`: `rules/codex.md`, Abschnitte "Konsistenz" und "Workflow / Pflege".
 
 ## Beteiligte Projekte
 
