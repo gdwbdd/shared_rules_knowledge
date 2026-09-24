@@ -4,6 +4,22 @@
 > welche Regel daraus folgt. Neue Einträge oben anfügen (Regel "Persistenz von Lernprozessen").
 > Konsolidiert 2026-09-11 aus den Memory-Ordnern von `mec_demo` und `tests`.
 
+## 2026-09-24 · Bewegungscode ohne Initialisierung/Stabilitätsroutinen geschrieben (ALPLA)
+**Fall:** Erster Implementierungsversuch für Roboter-Bewegungsmodule (`plan`/`execute` direkt auf
+einer `MotionGroup`) wurde geschrieben, ohne vorher im vorhandenen Referenzprojekt (`mec_demo`,
+`mct/robot.py`) zu prüfen, was dort zwischen "Verbindung zum Controller" und "erste Bewegung"
+zusätzlich passiert. Dort: `Robot.initRobots()` (Controller/Motion-Group/TCP auflösen, TCP-Index-
+Fallback), kollisionssichere Planung mit Fallback auf `collision_free()` und Einzel-Collider-
+Diagnose bei Startpose-Kollision, Greifer-IO-Initialisierung mit Verzögerung zwischen Writes,
+Pose-Validierung vor Verwendung, Status-Tracking. Nichts davon war im ersten ALPLA-Versuch
+vorhanden — User: "Hier liegt ein grundlegender Fehler vor. [...] Welche Stabilitätsroutinen
+laufen zusätzlich?" Code wurde daraufhin komplett verworfen, zurück zur Planung.
+**Regel:** Bevor Bewegungslogik gegen eine neue Roboterzelle geschrieben wird, IMMER zuerst ein
+vorhandenes Referenzprojekt auf Initialisierungs- und Stabilitätsroutinen zwischen Verbindungsaufbau
+und erster Bewegung durchsuchen (nicht nur auf die Bewegungsschritte selbst) — `plan()`/`execute()`
+sind nie die ganze Kette. Fehlt ein Referenzprojekt, das explizit als offene Frage benennen statt
+anzunehmen, es gebe keine.
+
 ## 2026-09-21 · SSoT gilt auch für Kopfnotizen und Vorlagen (mec_demo)
 **Fall:** User fragte, ob die Kopfzeilen von `open_points.md` ("Bei jeder inhaltlichen Änderung
 mitcommitten. Session-Start: ZUERST lesen ...") offene Punkte seien. Sie waren Kopien von
