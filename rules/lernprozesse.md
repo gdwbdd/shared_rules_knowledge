@@ -4,6 +4,22 @@
 > welche Regel daraus folgt. Neue Einträge oben anfügen (Regel "Persistenz von Lernprozessen").
 > Konsolidiert 2026-09-11 aus den Memory-Ordnern von `mec_demo` und `tests`.
 
+## 2026-09-24 · Hintergrundprozess als gestoppt behauptet, ohne es zu pruefen (ALPLA)
+**Fall:** `uv run python -m ...` im Hintergrund gestartet (Bash, `&`); `$!` lieferte die PID des
+`uv run`-Wrapper-Prozesses, nicht die des davon gestarteten `python.exe` (auf Windows kein
+`exec()`-Ersatz, `uv` startet den Interpreter als eigenes Kind mit eigener PID). `kill <wrapper-
+pid>` lief ohne Fehler durch, `jobs -l` zeigte danach nichts mehr — das wurde als "Server
+gestoppt" gemeldet, ohne den tatsächlichen Zustand (Port/Prozessliste) zu pruefen. Der echte
+Server lief weiter und blockierte den Port, bis der User Minuten spaeter von sich aus nachfragte
+("kann es sein, dass Ports doppelt belegt sind?").
+**Regel:** Eine Prozess-Beendigung nie allein an einer leeren Job-Tabelle oder einem
+fehlerfreien `kill`-Exitcode festmachen — das bestaetigt nur, dass das Signal an EINE PID ging,
+nicht dass die Ressource (Port, tatsaechlicher Kindprozess) frei ist. Nach jedem `kill` eines
+Hintergrundprozesses den Zielzustand aktiv verifizieren (`netstat`/Prozessliste). Bei mit `uv
+run`/aehnlichen Wrappern gestarteten Hintergrundprozessen auf Windows gilt zusaetzlich: die per
+`$!`/PID erfasste Prozess-ID ist oft der Wrapper, nicht der eigentliche Interpreter-Prozess —
+vor einer "gestoppt"-Behauptung den tatsaechlich lauschenden Prozess ueber den Port ermitteln.
+
 ## 2026-09-24 · Bewegungscode ohne Initialisierung/Stabilitätsroutinen geschrieben (ALPLA)
 **Fall:** Erster Implementierungsversuch für Roboter-Bewegungsmodule (`plan`/`execute` direkt auf
 einer `MotionGroup`) wurde geschrieben, ohne vorher im vorhandenen Referenzprojekt (`mec_demo`,
