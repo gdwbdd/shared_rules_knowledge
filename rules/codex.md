@@ -201,6 +201,8 @@
   trotz guter Geschwindigkeit (User-Vorgaben 2026-08-28, 2026-09-04, 2026-09-11).
 - Arbeits-Basis liegt im Repo unter `docs/workbasis/` und gehört in JEDEN Commit, sofern geändert.
 - Git: Commit UND Push IMMER gemeinsam (kein Commit ohne Push liegen lassen).
+- Commit-Texte auf Englisch (User 2026-09-21: "Commit-Texte nur noch in english bitte"); gilt für
+  alle Projekte, auch wenn Doku und Chat auf Deutsch sind.
 - Commit NUR auf ausdrücklichen User-Wunsch, nicht nach jeder Aktion (Änderungen sammeln).
   Ursprünglich befristet "bis 31.07.2026", seitdem gelebte Praxis; Neubewertung offen.
 - Weiterentwicklung im `PROJECT_PLAN.md` des Projekts dokumentieren.
